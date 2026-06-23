@@ -1,0 +1,25 @@
+Overall workload state distribution:
+  Moderate     50.0%
+  Idle         25.0%
+  Active       25.0%
+
+Bursty hours (high CoV): [1, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+Balanced hours (low CoV): [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+Overall usage pattern: BALANCED  (CoV = 0.446)
+
+Per-host idle ratio:
+  dgxanode01          Idle:   0.0%   Active:   8.7%
+  dgxanode02          Idle:  30.3%   Active:  14.6%
+  dgxanode03          Idle:  34.3%   Active:  18.4%
+  dgxanode04          Idle:  53.6%   Active:   6.9%
+  dgxhnode1           Idle:  16.0%   Active:  13.2%
+  dgxhnode2           Idle:  35.9%   Active:  17.6%
+  dgxhnode3           Idle:   0.2%   Active:  70.6%
+  dgxhnode4           Idle:  18.1%   Active:  50.5%
+  dgxhnode5           Idle:  69.4%   Active:  18.9%
+  dgxhnode6           Idle:  94.9%   Active:   0.0%
+
+  ✅ State-by-hour plot → extended_analysis/workload_state_by_hour.png
+  ✅ Burstiness plot → extended_analysis/burstiness_by_hour.png
+  ✅ Power distribution plot → extended_analysis/power_distribution.png

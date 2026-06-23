@@ -1,0 +1,37 @@
+ FINAL GPU TELEMETRY REPORT 
+
+1. CLUSTERING RADIUS (EPSILON): 0.18
+   - Selected dynamically using K-distance graph approximations and score maximization to ensure semantic separation without excessive noise.
+
+2. CLUSTERING PERFORMANCE
+   - Total Clusters: 8
+   - Overall Outliers: 5.99%
+   - Peak Inliers: 94.49%
+   - Non-Peak Inliers: 96.18%
+
+3. CLUSTER INTERPRETATIONS
+   - Burst/Unstable: 95.30W avg, 93.40% of data
+   - Moderate Load: 129.47W avg, 0.10% of data
+   - Idle/Low Load: 84.87W avg, 0.07% of data
+   - High Load: 495.88W avg, 0.20% of data
+   - Idle/Low Load: 86.71W avg, 0.02% of data
+   - Moderate Load: 135.78W avg, 0.09% of data
+   - Moderate Load: 107.87W avg, 0.07% of data
+   - High Load: 158.04W avg, 0.05% of data
+
+4. OUTLIER PATTERNS & INSIGHTS
+   - The most common anomaly is Spike Events, occurring mostly between hours [17, 16, 18].
+
+5. GPU & NODE WORKLOAD DISTRIBUTION
+   - A100 vs H100 Avg Load: 95.29W vs 115.53W
+   - Consistently High Load GPUs: []
+
+6. PEAK VS NON-PEAK BEHAVIOR
+   - During peak hours, GPU loads tend to shift towards Burst/Unstable behaviors, indicating potential resource contention.
+
+7. REPEATING PATTERNS
+   - Anomalies correlate directly with the identified peak hours (12-18). Possible causes: synchronized batch job scheduling or IO bottlenecks.
+
+8. CITM ACTION POINTS
+   - INVESTIGATE: ['dgxanode01_00000000:47:00.0', 'dgxanode02_00000000:07:00.0', 'dgxanode02_00000000:0F:00.0', 'dgxanode02_00000000:47:00.0', 'dgxanode02_00000000:87:00.0']
+   - BALANCE: Shift non-critical batch jobs to dgxanode02 away from dgxhnode3.

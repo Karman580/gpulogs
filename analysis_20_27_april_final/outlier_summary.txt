@@ -1,0 +1,23 @@
+=== OUTLIER SUMMARY ===
+Distribution:
+- Spike Event: 351485
+- Sustained High-Load Anomaly: 114763
+- Erratic Fluctuation: 25943
+
+Top GPUs contributing to outliers:
+gpu_id
+dgxanode02_00000000:0F:00.0    65195
+dgxanode02_00000000:47:00.0    61989
+dgxanode02_00000000:07:00.0    59613
+dgxanode01_00000000:47:00.0    58787
+dgxhnode2_00000000:61:00.0     38115
+Name: count, dtype: int64
+
+Top Hours contributing to outliers:
+hour
+17    28266
+16    27579
+18    26043
+15    25070
+11    24572
+Name: count, dtype: int64

@@ -1,0 +1,44 @@
+=== GPU TELEMETRY CLUSTERING REPORT ===
+
+1. CLUSTERING PARAMETERS
+   - Epsilon Used (Full): 0.161
+   - Min Samples: 20
+
+2. KEY INSIGHTS
+   - Peak Hours Identified: [12, 13, 14, 15, 16, 17, 18]
+   - Cluster Inliers Ratio (Peak): 93.4%
+   - Cluster Inliers Ratio (Non-Peak): 92.8%
+
+3. OUTLIER FINDINGS
+   - Top 5 GPUs with most outliers:
+     * dgxanode02_00000000:07:00.0: 86081 anomalies
+     * dgxanode01_00000000:47:00.0: 70123 anomalies
+     * dgxanode02_00000000:0F:00.0: 67871 anomalies
+     * dgxanode02_00000000:47:00.0: 62010 anomalies
+     * dgxhnode2_00000000:61:00.0: 43065 anomalies
+   - Top 3 Hours with most outliers: [17, 16, 18]
+
+4. WORKLOAD DISTRIBUTION
+   - Average Load by Node:
+     * dgxanode01: 95.70 W
+     * dgxanode02: 94.88 W
+     * dgxhnode2: 102.29 W
+     * dgxhnode3: 128.81 W
+   - Average Load by GPU Type:
+     * A100: 95.29 W
+     * H100: 115.53 W
+   - Consistently High Load GPUs (Top 5):
+     * dgxhnode3_00000000:1B:00.0: 188.05 W
+
+     * dgxhnode3_00000000:C3:00.0: 152.70 W
+
+     * dgxanode01_00000000:47:00.0: 147.09 W
+
+     * dgxanode02_00000000:47:00.0: 140.31 W
+
+     * dgxhnode3_00000000:52:00.0: 137.64 W
+
+5. OBSERVATIONS FOR CITM TEAM
+   - There are specific hours and specific GPUs exhibiting anomalous power consumption behaviors (see Outlier Findings).
+   - Check if the high load GPUs are consistently running long-standing jobs, or if there is an imbalance in job scheduling.
+   - A higher number of outliers during peak/non-peak indicates sporadic workload behavior. Review jobs scheduled during the top anomalous hours.

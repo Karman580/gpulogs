@@ -1,0 +1,11 @@
+{
+    "clustering_radius": 0.18,
+    "clustering_performance": {
+        "full_clusters": 8,
+        "outlier_pct": 5.994096157923574
+    },
+    "actionable_insights": [
+        "Unstable GPUs identified that require inspection",
+        "Load imbalance between specific dgxh and dgxa nodes detected"
+    ]
+}

@@ -1,0 +1,26 @@
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Redundant zip archives
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Large raw & clustered data logs (due to GitHub file size limits of 100MB)
+gpu_power_log.csv
+gpu_power_log_apr20_27.csv
+clustered_full.csv
+clustered_non_peak.csv
+clustered_peak.csv

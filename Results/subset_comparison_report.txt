@@ -1,0 +1,52 @@
+# GPU Power Data Clustering Analysis Report
+
+## Subset 1
+
+### Cluster Interpretation Table
+
+| Cluster | Mean Power (W) | Timing Pattern | Interpretation | Size (Count) |
+|---------|----------------|----------------|----------------|--------------|
+| High spike cluster | 268.18 | Peaks around 14:00 (Daytime), widespread usage | High spike cluster | 1555 |
+| Low usage / idle cluster | 212.66 | Peaks around 13:00 (Daytime), widespread usage | Idle / Low usage cluster | 791 |
+| Medium usage cluster | 228.07 | Peaks around 21:00 (Evening), widespread usage | Moderate usage cluster | 1173 |
+
+
+## Subset 2
+
+### Cluster Interpretation Table
+
+| Cluster | Mean Power (W) | Timing Pattern | Interpretation | Size (Count) |
+|---------|----------------|----------------|----------------|--------------|
+| High spike cluster | 241.72 | Peaks around 18:00 (Evening), widespread usage | High spike cluster | 1715 |
+| Low usage / idle cluster | 214.85 | Peaks around 17:00 (Daytime), widespread usage | Idle / Low usage cluster | 1431 |
+| Medium usage cluster | 230.11 | Peaks around 0:00 (Night/Early Morning), widespread usage | Moderate usage cluster | 2033 |
+
+
+## Subset 3
+
+### Cluster Interpretation Table
+
+| Cluster | Mean Power (W) | Timing Pattern | Interpretation | Size (Count) |
+|---------|----------------|----------------|----------------|--------------|
+| High spike cluster | 256.49 | Peaks around 22:00 (Night/Early Morning), widespread usage | High spike cluster | 1147 |
+| Low usage / idle cluster | 238.13 | Peaks around 18:00 (Evening), widespread usage | Idle / Low usage cluster | 1272 |
+| Medium usage cluster | 247.18 | Peaks around 0:00 (Night/Early Morning), widespread usage | Moderate usage cluster | 1177 |
+
+
+## Cross-Subset Comparison
+
+- **High-Power Occurrences**: Subset 2 exhibited the highest number of high-power spikes (1715 occurrences).
+- **Variability**: Subset 2 showed the highest variability (power fluctuations), while Subset 3 was the most consistent.
+- **Consistency**: Moderate and low usage clusters form the baseline across all subsets, maintaining a relatively stable count, whereas high power spikes shift temporally over the days.
+
+## Summary Insights
+
+1. **Load Imbalance**: Spike severity and frequency vary significantly between subsets, indicating uneven workloads distributed unevenly across days.
+2. **Timing Patterns**: Heavy computational tasks (High spike clusters) often occur in concentrated bursts during specific periods, while idle states are widespread throughout the entire 24-hour cycle.
+3. **Repeated Spikes**: We observe characteristic high-power draw behaviors repeating at specific times (e.g., concentrated night/evening hours), suggesting scheduled workloads or recurrent intensive batch jobs.
+4. **Idle vs Active Trends**: The baseline power consumption remains dominant. Most clusters show the GPUs spend a disproportionately large amount of time in low/idle usage states compared to high spikes.
+5. **Stability vs Instability**: Periods such as Days 4-6 often show shifts in power distributions, reflecting transitional phases where larger models or heavier datasets are processed, causing volatility.
+
+## Final Conclusion
+
+Based on the clustered outlier analyses, the GPU resource utilization exhibits distinct scheduling signatures characterized by long periods of idle / baseline usage punctuated by aggressive high-power peaks. **Efficiency Issues**: The persistent baseline draw combined with concentrated peak usage suggests potential under-utilization of resources during off-peak hours. Job scheduling could be optimized to run background jobs during 'Idle / Low usage' periods to smooth the power draw and enhance overall throughput. **Resource Usage Patterns**: A significant portion of outliers are clustered around moderate to high thresholds, revealing the presence of compute-intensive bottlenecks. Balancing these workloads across the day uniformly could mitigate power strain and improve thermal/energy efficiency.

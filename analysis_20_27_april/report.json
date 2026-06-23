@@ -1,0 +1,52 @@
+{
+    "clustering_parameters": {
+        "epsilon_full": 0.16100915202678295,
+        "min_samples": 20
+    },
+    "key_insights": {
+        "peak_hours": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+        ],
+        "cluster_density_peak": 0.93438228023688,
+        "cluster_density_non_peak": 0.9282401292313028
+    },
+    "outlier_findings": {
+        "top_outlier_gpus": {
+            "dgxanode02_00000000:07:00.0": 86081,
+            "dgxanode01_00000000:47:00.0": 70123,
+            "dgxanode02_00000000:0F:00.0": 67871,
+            "dgxanode02_00000000:47:00.0": 62010,
+            "dgxhnode2_00000000:61:00.0": 43065
+        },
+        "top_outlier_hours": {
+            "17": 32190,
+            "16": 31313,
+            "18": 29422
+        }
+    },
+    "workload_distribution": {
+        "load_by_node": {
+            "dgxanode01": 95.70184260177382,
+            "dgxanode02": 94.87819191257341,
+            "dgxhnode2": 102.2900683267449,
+            "dgxhnode3": 128.81032220682826
+        },
+        "load_by_gpu_type": {
+            "A100": 95.2881974624907,
+            "H100": 115.5323531291806
+        },
+        "consistently_high_load_gpus": {
+            "dgxhnode3_00000000:1B:00.0": 188.05484480971478,
+            "dgxhnode3_00000000:C3:00.0": 152.70489376404865,
+            "dgxanode01_00000000:47:00.0": 147.08923220089557,
+            "dgxanode02_00000000:47:00.0": 140.3052344792081,
+            "dgxhnode3_00000000:52:00.0": 137.63740549794827
+        }
+    }
+}

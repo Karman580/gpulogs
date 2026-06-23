@@ -1,0 +1,36 @@
+=== GPU TELEMETRY DEEP ANALYSIS REPORT (V2) ===
+
+1. VALIDATED CLUSTERING PARAMETERS
+   - Optimal Epsilon Chosen: 0.161
+   - Justification: Out of the tested values (0.161, 0.2, 0.25, 0.3), this epsilon optimized the balance between noise reduction and maintaining distinct behavioral clusters.
+
+2. CLUSTER INTERPRETATION
+   - Burst/Unstable: Avg Power = 94.59 W, Variance = 1045.56, Count = 7610184
+   - High Load: Avg Power = 177.60 W, Variance = 28.76, Count = 3952
+   - High Load: Avg Power = 502.09 W, Variance = 24.54, Count = 3924
+   - High Load: Avg Power = 492.12 W, Variance = 40.58, Count = 7126
+   - High Load: Avg Power = 236.11 W, Variance = 33.08, Count = 2325
+   - High Load: Avg Power = 257.91 W, Variance = 35.29, Count = 4384
+   - Idle/Low Load: Avg Power = 84.44 W, Variance = 4.06, Count = 4853
+   - High Load: Avg Power = 495.04 W, Variance = 28.45, Count = 2226
+
+3. OUTLIER INTELLIGENCE
+   - Spike Event: 378698 occurrences
+   - Sustained High-Load Anomaly: 127623 occurrences
+   - Erratic Fluctuation: 65968 occurrences
+
+4. GPU BEHAVIOR PROFILING (Summary)
+   - Stable GPUs: 22
+   - High-Load Consistent GPUs: 0
+   - Unstable / Spiky GPUs: 10
+   - Examples of Unstable GPUs: ['dgxanode01_00000000:47:00.0', 'dgxanode02_00000000:07:00.0', 'dgxanode02_00000000:0F:00.0', 'dgxanode02_00000000:47:00.0', 'dgxanode02_00000000:87:00.0']
+
+5. SYSTEM-LEVEL INSIGHTS
+   - GPU Type Load: H100s run at 115.53W avg vs A100s at 95.29W avg. H100s are generally provisioned for higher capacity, but ensure this isn't solely due to scheduler bias.
+   - Top Loaded Node: dgxhnode3 (128.81W)
+   - Least Loaded Node: dgxanode02 (94.88W)
+
+6. CITM ACTION POINTS (STRONG)
+   - INVESTIGATE UNSTABLE GPUs: Cross-reference the identified 'Unstable / Spiky' GPUs with specific job IDs. If jobs are failing, hardware throttling may be occurring.
+   - REDISTRIBUTE WORKLOADS: There is a measurable imbalance between the top and bottom loaded nodes. The scheduler should be adjusted to offload background tasks from the heavily loaded dgxh nodes to idle dgxa nodes.
+   - PEAK TRANSITION ALERTS: The transition matrix shows the shift in load behaviors during peak hours (12-18). Implement rate-limiting or job queueing during these specific hours to prevent anomalous power spikes.
